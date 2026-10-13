@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.home-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+#home-header {
+    background: #321E48;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+body{
+    background-color: #CBDCEB;
+    color: #333333;
+}
+.login-box{
+
+    margin-top:20px;
+
+    border:2px solid #5B3B7A;
+
+    border-radius:8px;
+
+    background:#fcf4e2c8;
+
+    padding:20px;
+}
+
+#home-header h1 {
+    color: white;
+    font-size: 34px;
+}
+
+#home-nav{
+    margin-top:15px;
+}
+#home-nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:right;
+    gap:25px;
+}
+#home-nav ul li a{
+    text-decoration:none;
+    color:#321E48;
+    font-size:16px;
+    font-weight:bold;
+    padding:7px 12px;
+    border-radius:5px;
+}
+#home-nav ul li a:hover{
+    background-color:#5B3B7A;
+    color: white;
+}
+
+.image {
+    width: 100%;
+    min-height: 450px;
+    background-image: url("s.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    margin-top: 20px;
+}
+
+.banner {
+    width: 40%;
+    min-width: 320px;
+    background: rgba(255,255,255,0.55);
+    padding: 50px;
+    border-radius: 12px;
+}
+
+.banner h1 {
+    color: #321E48;
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.banner p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+.banner a {
+    display: inline-block;
+    background-color: #321E48;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.intro {
+    width: 90%;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: white;
+    border: 2px solid #5B3B7A;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.intro h2 {
+    color: #321E48;
+    margin-bottom: 15px;
+    font-size: 30px;
+}
+
+.intro p {
+    color: #444;
+    font-size: 18px;
+    line-height: 1.8;
+}
+.home-features{
+    width:100%;
+    margin:40px auto;
+    text-align:center;
+}
+
+.home-features h2{
+    color:#321E48;
+    font-size:30px;
+    margin-bottom:25px;
+    text-align:center;
+}
+
+.home-features table{
+    width:100%;
+    border-spacing:15px;;
+}
+
+
+.home-features td{
+    width:33.33%;
+    padding:20px;
+    background:#F8F8F8;
+    border:2px solid #5B3B7A;
+    border-radius:10px;
+    text-align:center;
+} 
+.home-features td:hover{
+    background:#EFE7F7;
+}
+
+.home-features h3{
+    color:#321E48;
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.home-features p{
+    color:#444444;
+    line-height:1.6;
+    text-align:center;
+}
+/* =========================
+   HAMBURGER MENU
+   ========================= */
+
+.menu-button {
+    display: none;
+
+    background-color: #5B3B7A;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 7px 12px;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background-color: #321E48;
+}
+
+
+/* =========================
+   THEME BUTTON
+   ========================= */
+
+.theme-button {
+    background-color: #5B3B7A;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 7px 12px;
+
+    font-size: 18px;
+    cursor: pointer;
+
+    margin-left: 8px;
+}
+
+.theme-button:hover {
+    background-color: #321E48;
+}
+@media (max-width: 768px) {
+
+    #home-header {
+        position: relative;
+    }
+
+    .menu-button {
+        display: inline-block;
+
+        position: absolute;
+        right: 55px;
+        top: 10px;
+    }
+
+    .theme-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        margin: 0;
+    }
+
+    #home-nav {
+        display: none;
+    }
+
+    #home-nav.active {
+        display: block;
+    }
+
+    #home-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #home-nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    #home-nav ul li a {
+        display: block;
+        width: 100%;
+    }
+}
+/* =========================
+   DARK THEME
+   ========================= */
+
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #eeeeee;
+}
+
+body.dark-theme .login-box {
+    background-color: #2b2b2b;
+}
+
+body.dark-theme #home-header {
+    background-color: #321E48;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme p {
+    color: #eeeeee;
+}
+</style>
+<body>
+
+    <div class="container">
+
+        <div id="home-header">
+    <h1>Home</h1>
+
+    <!-- Hamburger Menu Button -->
+    <button id="menuButton" class="menu-button">☰</button>
+
+    <!-- Light / Dark Theme Button -->
+    <button id="themeButton" class="theme-button">🌙</button>
+</div>
+
+<fieldset class="login-box">
+
+    <div id="home-nav">
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="Login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+
+        <hr>
+
+    </div>
+
+</fieldset>
+
+            <!-- Banner -->
+<section class="image">
+
+    <div class="banner">
+
+        <h2>Welcome to StudentHUB!</h2>
+
+        <p>
+            Your one-stop student portal for
+            managing academic and campus
+            activities.
+        </p>
+
+        <a href="login.html">Get Started</a>
+
+    </div>
+
+</section>
+            </div>
+            <div class="intro">
+
+    <h2>Welcome to StudentHub</h2>
+
+    <p>
+        StudentHub is a centralized portal designed to simplify student life by
+        providing easy access to academic resources, campus updates, and
+        essential student services. It helps students stay organized,
+        informed, and connected throughout their academic journey.
+    </p>
+
+</div>
+<div class="home-features">
+
+    <h2>Our Features</h2>
+
+    <table align="center" cellpadding="100">
+
+        <tr>
+
+            <td>
+                <h3>📚 Course Management</h3>
+                <p>
+                    Access study materials and course information.
+                </p>
+            </td>
+
+            <td>
+                <h3>📅 Events</h3>
+                <p>
+                    Stay updated with college events and activities.
+                </p>
+            </td>
+
+            <td>
+                <h3>📢 Notices</h3>
+                <p>
+                    Receive important announcements from the college.
+                </p>
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+                <h3>👤 Student Profile</h3>
+                <p>
+                    Manage your personal and academic information.
+                </p>
+            </td>
+
+            <td>
+                <h3>📈 Academic Progress</h3>
+                <p>
+                    Track attendance, assignments and grades.
+                </p>
+            </td>
+
+            <td>
+                <h3>💬 Easy Communication</h3>
+                <p>
+                    Connect with faculty and stay informed.
+                </p>
+            </td>
+
+        </tr>
+
+    </table>
+</div>
+<footer>
+
+    <h2>StudentHub</h2>
+
+    <p>
+        Your Smart Campus Companion
+    </p>
+
+    <p>
+        StudentHub is a centralized portal that helps students
+        access academic resources, stay updated with campus
+        activities, and manage their academic journey efficiently.
+    </p>
+
+    <hr>
+
+    <h3>Contact Us</h3>
+
+    <p>Email : support@studenthub.com</p>
+
+    <p>Phone : +91 98765 43210</p>
+
+    <p>Address : CHARUSAT University, Changa, Anand, Gujarat</p>
+
+    <hr>
+
+    <h3>Follow Us</h3>
+
+    <p>
+        <a href="#">Instagram</a> |
+        <a href="#">Facebook</a> |
+        <a href="#">LinkedIn</a>
+    </p>
+
+    <hr>
+
+    <p align="center">
+        © 2026 StudentHub Portal. All Rights Reserved.
+    </p>
+
+</footer>
+
+        </fieldset>
+
+    </div>
+    <script src="script.js"></script>
+    </body> 

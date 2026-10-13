@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Assignments</title>
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .title {
+    background-color: #fcf4e2c8;
+    border: 2px solid #5B3B7A;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.title h2 {
+    margin-top: 0;
+    color: #321E48;
+}
+
+.assignment-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.assignment-card {
+    background-color: white;
+    border: 1px solid #5B3B7A;
+    border-left: 6px solid #5B3B7A;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.assignment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.assignment-header h2 {
+    color: #321E48;
+}
+
+.status {
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.pending {
+    background-color: #fcf4e2c8;
+    color: #321E48;
+}
+
+.submitted {
+    background-color: #e6dced;
+    color: #321E48;
+}
+
+.assignment-card p {
+    line-height: 1.5;
+}
+
+.assignment-card button {
+    background-color: #321E48;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.assignment-card button:hover {
+    background-color: #5B3B7A;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="header">
+
+        <h1>ASSIGNMENTS</h1>
+
+        <div id="nav">
+
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="title">
+
+        <h2>My Assignments</h2>
+
+        <p>
+            View your assignments, deadlines and submission status.
+        </p>
+
+    </div>
+
+
+    <div class="assignment-list">
+
+
+        <div class="assignment-card">
+
+            <div class="assignment-header">
+
+                <h2>Object Oriented Programming</h2>
+
+                <span class="status pending">Pending</span>
+
+            </div>
+
+            <p><b>Course Code:</b> CEUE203</p>
+
+            <p><b>Assignment:</b> Classes and Objects</p>
+
+            <p><b>Due Date:</b> 12 August 2026</p>
+
+            <p>
+                Write a program demonstrating classes, objects,
+                constructors and basic object-oriented concepts.
+            </p>
+
+            <button>View Assignment</button>
+
+        </div>
+
+
+        <div class="assignment-card">
+
+            <div class="assignment-header">
+
+                <h2>Web Development Framework</h2>
+
+                <span class="status submitted">Submitted</span>
+
+            </div>
+
+            <p><b>Course Code:</b> ITUE203</p>
+
+            <p><b>Assignment:</b> HTML and CSS Website</p>
+
+            <p><b>Due Date:</b> 14 August 2026</p>
+
+            <p>
+                Create a responsive student portal using HTML
+                and CSS with multiple connected pages.
+            </p>
+
+            <button>View Assignment</button>
+
+        </div>
+
+
+        <div class="assignment-card">
+
+            <div class="assignment-header">
+
+                <h2>Fundamentals of Data Structures and Algorithms</h2>
+
+                <span class="status pending">Pending</span>
+
+            </div>
+
+            <p><b>Course Code:</b> CEUC201</p>
+
+            <p><b>Assignment:</b> Arrays and Searching</p>
+
+            <p><b>Due Date:</b> 18 August 2026</p>
+
+            <p>
+                Implement basic array operations and searching
+                algorithms and explain their working.
+            </p>
+
+            <button>View Assignment</button>
+
+        </div>
+
+
+        <div class="assignment-card">
+
+            <div class="assignment-header">
+
+                <h2>Fundamentals of Computer Networks</h2>
+
+                <span class="status submitted">Submitted</span>
+
+            </div>
+
+            <p><b>Course Code:</b> ITUC201</p>
+
+            <p><b>Assignment:</b> Network Topology</p>
+
+            <p><b>Due Date:</b> 20 August 2026</p>
+
+            <p>
+                Study different network topologies and configure
+                a basic network using Cisco Packet Tracer.
+            </p>
+
+            <button>View Assignment</button>
+
+        </div>
+
+
+    </div>
+
+
+    <footer>
+
+        <h2>StudentHub</h2>
+
+        <p>Your Smart Campus Companion</p>
+
+        <hr>
+
+        <p>Email : support@studenthub.com</p>
+
+        <p>Phone : +91 98765 43210</p>
+
+        <p>© 2026 StudentHub Portal. All Rights Reserved.</p>
+
+    </footer>
+
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

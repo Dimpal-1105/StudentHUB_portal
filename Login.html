@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    #login-header
+{
+    width: auto;
+    height: auto;
+    margin: auto;
+    background-color: #321E48;
+}
+
+.auth-box {
+    width: 200px;
+    height: 300px;
+    margin: 50px auto;
+    border: 2px solid #5B3B7A;
+    background-color: #fcf4e2c8;
+    border-radius: 8px;
+}
+body{background-color:#CBDCEB;}
+</style>
+<body align="center">
+
+    <div id="login-header">
+        <font size="+1" style="color:white">
+            <h1>Login</h1>
+        </font>
+    </div>
+
+    <fieldset class="auth-box">
+
+        <form action="Dashboard.html" method="post" autocomplete="on">
+
+            <br><br>
+
+            <table align="center" cellpadding="6" cellspacing="15">
+
+                <tr>
+                    <td>
+                        <font size="+1"><b>Username</b></font>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <input type="text" placeholder="25CE001">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <font size="+1"><b>Password</b></font>
+                    </td>
+                    <td>:</td>
+                    <td>
+                        <input
+                            type="password"
+                            name="password"
+                            minlength="8"
+                            maxlength="20"
+                            placeholder="Enter password"
+                            required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+
+                    <td>
+                        <button
+                            type="submit"
+                            style="background-color:#321E48; color:azure;">
+                            <b>Submit</b>
+                        </button>
+
+                        <button
+                            type="reset"
+                            style="background-color:#321E48; color:azure;">
+                            <b>Clear</b>
+                        </button>
+                    </td>
+                </tr>
+
+            </table>
+
+        </form>
+
+        <p>
+            Click here to go to the Home page.
+            <a href="home.html">Home</a>
+        </p>
+
+        <p>
+            Don't have an account?
+            <a href="register.html">Register</a>
+        </p>
+
+    </fieldset>
+<script src="script.js"></script>
+</body>
+
+</html>

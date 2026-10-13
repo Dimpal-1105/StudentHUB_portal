@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <div><title >Login</title></div>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <style>
+        #register-header
+{
+   background: #321E48;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    .auth1-box
+    {   
+    margin-top:20px;
+    border:2px solid #5B3B7A;
+    border-radius:8px;
+    background:#fcf4e2c8;
+    padding:20px;
+}
+    </style>
+    <body align="center">
+        <div id="register-header">
+           <font size="+1" style="color:white"><h1>Register</h1></font>
+        </div>
+        <fieldset class="auth1-box">
+            <form action="Dashboard.html" method="post" autocomplete="on">
+                <br><br>
+                <table align="left" cellpadding="6" cellspacing="6">
+                    <tr>
+                    <td><font size="+1"><b>Full Name</b></font></td>
+                    <td>:</td>
+                    <td><input type="text" placeholder="Enter your name"></td>
+                    </tr>
+                    <tr>
+                    <td><font size="+1"><b>Enrollment Number</b></font></td>
+                    <td>:</td>
+                    <td><input type="text"
+       name="enrollment"
+       minlength="7"
+       maxlength="10"
+       size="16"
+       pattern="[0-9]{2}[A-Z]{2}[0-9]{3,6}"
+       placeholder="25CE001"></td><align>
+                    </tr>
+                    <tr>
+                    <td><font size="+1"><b>Email ID</b></font></td>
+                    <td>:</td>
+                    <td><input type="email" placeholder="Enter your email"></td>
+                    </tr>
+                    <tr><td><font size="+1"><b>Phone Number</b></font></td>
+                    <td>:</td>
+                    <td><input type="tel"
+               name="phone"
+               pattern="[0-9]{10}"
+               maxlength="10"
+               placeholder="9876543210"
+               required></td>
+                    </tr>
+                    <tr>
+                    <td><font size="+1"><b>Gender</b></font></td>
+                    <td>:</td>
+                <td><input type="radio" id="male" name="gender" value="male" checked>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label></td>
+            </tr>
+            </tr>
+            <tr>
+    <td><b>Date of Birth</b></td>
+    <td>:</td>
+    <td>
+        <input type="date"
+               name="dob"
+               required>
+    </td>
+</tr>
+<tr>
+                <td><font size="+1"><b>Department</b></font></td>
+                <td>:</td>
+                <td><select>
+                    <option> CE</option>
+                    <option> CSE</option>
+                    <option> IT</option>
+                    <option> ME</option>
+                    <option> EC</option>
+                    <option> CL</option>
+                </select></td>
+               </tr>
+               <tr>
+                <td><font size="+1"><b>Semester</b></font></td>
+                <td>:</td>
+                <td><select>
+                    <option> 1</option>
+                    <option> 2</option>
+                    <option> 3</option>
+                    <option> 4</option>
+                    <option> 5</option>
+                    <option> 6</option>
+                    <option> 7</option>
+                    <option> 8</option>
+                </select></td>
+               </tr>
+                <tr>
+                    <tr>
+                    <td><font size="+1"><b>Address</b></font></td>
+                    <td>:</td>
+                    <td><textarea name="address"
+                  rows="4"
+                  cols="25"
+                  placeholder="Enter your address"
+                  required></textarea></td>
+                    </tr>
+                <tr>
+                    <td><font size="+1"><b> Password</b></font></td>
+                    <td>:</td>
+                    <td><input type="password"
+       name="password"
+       minlength="8"
+       maxlength="20"
+       placeholder="Enter password" required></td></tr>
+       <td><font size="+1"><b>Confirm Password</b></font></td>
+                    <td>:</td>
+                    <td><input type="password"
+       name="password"
+       minlength="8"
+       maxlength="20"
+       placeholder="Enter password" required></td></tr>
+                <td></td>
+                <td></td>
+                <td><button type="submit" style="background-color:#321E48;color:azure;" align="center"><b>Register</b></button>
+                    <button  type="reset" style="background-color:#321E48;color:azure;"  align="center"><b>Reset</b></button></td>
+                </tr>
+                <tr><td><p>Already have an account?<a href="Login.html">Login</b></a></p></b></td></tr>
+                </table>
+            </fieldset>
+            <script src="script.js"></script>
+    </body>
+</html>

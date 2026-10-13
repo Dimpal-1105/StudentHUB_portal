@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudentHub | Feedback</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .feedback-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.feedback-info {
+    background-color: #fcf4e2c8;
+    border: 2px solid #5B3B7A;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.feedback-info h2 {
+    color: #321E48;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.feedback-info > p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.feedback-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: white;
+    padding: 15px;
+    margin-top: 12px;
+    border-left: 5px solid #5B3B7A;
+    border-radius: 5px;
+}
+
+.feedback-point span {
+    color: #5B3B7A;
+    font-weight: bold;
+}
+
+.feedback-point p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.feedback-form {
+    background-color: white;
+    border-radius: 8px;
+    border-top: 5px solid #5B3B7A;
+    padding: 25px;
+}
+
+.feedback-form h2 {
+    color: #321E48;
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.feedback-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-form label {
+    color: #321E48;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+}
+
+.feedback-form textarea {
+    resize: vertical;
+}
+
+</style>
+<body>
+
+<div class="container">
+
+    <header id="header">
+
+        <h1>STUDENT FEEDBACK</h1>
+
+        <nav id="nav">
+
+            <ul>
+
+                <li><a href="home.html">Home</a></li>
+
+                <li><a href="dashboard.html">Dashboard</a></li>
+
+                <li><a href="profile.html">Profile</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <section class="page-title">
+
+        <h2>Share Your Feedback</h2>
+
+        <p>
+            Your feedback helps us improve StudentHub and
+            provide a better student experience.
+        </p>
+
+    </section>
+
+    <section class="feedback-section">
+
+
+        <div class="feedback-info">
+
+            <h2>We Value Your Opinion</h2>
+
+            <p>
+                Student feedback helps the college understand
+                what is working well and where improvements
+                are needed.
+            </p>
+
+
+            <div class="feedback-point">
+
+                <span>01</span>
+
+                <p>
+                    Share your experience using StudentHub.
+                </p>
+
+            </div>
+
+
+            <div class="feedback-point">
+
+                <span>02</span>
+
+                <p>
+                    Report problems or difficulties you faced.
+                </p>
+
+            </div>
+
+
+            <div class="feedback-point">
+
+                <span>03</span>
+
+                <p>
+                    Suggest new features and improvements.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="feedback-form">
+
+            <h2>Feedback Form</h2>
+
+            <form>
+
+
+                <label for="name">Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                >
+
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                >
+
+
+                <label for="category">Feedback Type</label>
+
+                <select id="category" name="category">
+
+                    <option value="">Select feedback type</option>
+
+                    <option value="suggestion">Suggestion</option>
+
+                    <option value="complaint">Complaint</option>
+
+                    <option value="website">Website Experience</option>
+
+                    <option value="academic">Academic Services</option>
+
+                    <option value="other">Other</option>
+
+                </select>
+
+
+                <label for="message">Your Feedback</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Write your feedback here..."
+                ></textarea>
+
+
+                <button type="submit">
+                    Submit Feedback
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+    </section>
+
+    <footer>
+
+        <h2>StudentHub</h2>
+
+        <p>Your Smart Campus Companion</p>
+
+        <hr>
+
+        <p>Email : support@studenthub.com</p>
+
+        <p>Phone : +91 98765 43210</p>
+
+        <p>© 2026 StudentHub Portal. All Rights Reserved.</p>
+
+    </footer>
+
+
+</div>
+<script src="script.js"></script>
+</body>
+
+</html>

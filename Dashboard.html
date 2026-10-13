@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Student Dashboard</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .dashboard {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #321E48;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 15px 0;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #CBDCEB;
+}
+
+.sidebar h3 {
+    color: white;
+    margin-top: 25px;
+}
+
+.sidebar button {
+    width: 210px;
+    background-color: #9771bc;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.dashboard-content {
+    flex: 1;
+}
+
+.top-menu {
+    background-color: #321E48;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.student-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.search input {
+    width: 300px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+}
+
+.account-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.account-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.account-menu a:hover {
+    background-color: #926eb6;
+}
+
+.welcome {
+    border: 2px solid #5B3B7A;
+    background-color: #fcf4e2c8;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.welcome h2 {
+    color: #321E48;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    width: 25%;
+    text-align: center;
+    border-radius: 10px;
+    border-top: 5px solid #5B3B7A;
+}
+
+.card h3 {
+    color: #321E48;
+}
+
+.card h1 {
+    color: #5B3B7A;
+}
+
+.info-section {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.box {
+    border: 2px solid #5B3B7A;
+    background-color: #fcf4e2c8;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.box h2 {
+    color: #321E48;
+}
+/* =========================
+   HAMBURGER MENU
+   ========================= */
+
+.menu-button {
+    display: none;
+
+    background-color: #5B3B7A;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 8px 12px;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu-button:hover {
+    background-color: #321E48;
+}
+/* =========================
+   THEME SWITCHER
+   ========================= */
+
+.theme-button {
+    background-color: #5B3B7A;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 8px 12px;
+
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.theme-button:hover {
+    background-color: #926eb6;
+}
+/* =========================
+   NOTIFICATION BANNER
+   ========================= */
+
+.notification {
+    background-color: #fcf4e2c8;
+    color: #321E48;
+
+    border-left: 6px solid #321E48;
+
+    padding: 15px 20px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.notification strong {
+    color: #321E48;
+}
+
+.notification button {
+    background: none;
+    border: none;
+
+    color: #321E48;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.notification button:hover {
+    color: #5B3B7A;
+}
+/* =========================
+   DARK THEME
+   ========================= */
+
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #eeeeee;
+}
+
+/* Dashboard header */
+
+body.dark-theme #header {
+    background-color: #321E48;
+}
+
+/* Dashboard content */
+
+body.dark-theme .welcome,
+body.dark-theme .box {
+    background-color: #2b2b2b;
+    color: #eeeeee;
+}
+
+body.dark-theme .card {
+    background-color: #2b2b2b;
+    color: #eeeeee;
+}
+
+body.dark-theme .welcome h2,
+body.dark-theme .box h2,
+body.dark-theme .card h3,
+body.dark-theme .card h1 {
+    color: #d8c5e8;
+}
+
+body.dark-theme .notification {
+    background-color: #2b2b2b;
+    color: #eeeeee;
+
+    border-left-color: #b198cb;
+}
+
+body.dark-theme .notification strong,
+body.dark-theme .notification button {
+    color: #d8c5e8;
+}
+
+body.dark-theme footer {
+    background-color: #171717;
+    color: #eeeeee;
+}
+/* =========================
+   RESPONSIVE HAMBURGER
+   ========================= */
+
+@media (max-width: 768px) {
+
+    .dashboard {
+        position: relative;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .sidebar {
+        display: none;
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 250px;
+
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        display: block;
+    }
+
+    .top-menu {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .search {
+        order: 3;
+        width: 100%;
+    }
+
+    .search input {
+        width: 100%;
+    }
+
+    .account-menu {
+        margin-left: auto;
+    }
+}
+</style>
+
+<body>
+
+<div class="profile">
+
+</div>
+<div class="container">
+    <div id="header">
+
+        <h1>Student Dashboard</h1>
+
+    </div>
+
+    <div class="dashboard">
+
+        <div class="sidebar">
+
+
+            <h2>StudentHub</h2>
+
+
+            <ul>
+                <li><a href="dashboard.html"><button>Dashboard</button></a></li>
+
+
+                <h3>Academic</h3>
+
+                <li><a href="attendance.html"><button>Attendance</button></a></li>
+
+                <li><a href="assignments.html"><button>Assignments</button></a></li>
+
+                <li><a href="materials.html"><button>Study Materials</button></a></li>
+
+                <li><a href="table.html"><button>Time-table</button></a></li>
+
+                <li><a href="grades.html"><button>Grades</button></a></li>
+
+
+                <h3>Campus</h3>
+
+                <li><a href="events.html"><button>Events</button></a></li>
+
+                <li><a href="notices.html"><button>Notices</button></a></li>
+
+            </ul>
+        </div>
+
+        <div class="dashboard-content">
+            <div class="top-menu">
+
+    <!-- Hamburger Menu -->
+    <button id="menuButton" class="menu-button">
+        ☰
+    </button>
+    <div id="notification" class="notification">
+
+    <div>
+        <strong>Important Notice:</strong>
+        Technical Workshop registrations are now open.
+    </div>
+
+    <button onclick="closeNotification()">×</button>
+
+    </div>
+    <div class="search">
+
+        <input type="text" placeholder="Search...">
+
+    </div>
+
+    <div class="account-menu">
+
+        <a href="profile.html">Profile</a>
+
+        <a href="feedback.html">Feedback</a>
+
+        <a href="Login.html">Logout</a>
+
+        <!-- Theme Switcher -->
+        <button id="themeButton" class="theme-button">
+            🌙
+        </button>
+
+    </div>
+
+</div>
+            <div class="welcome">
+                <h2>Welcome Back, Student!</h2>
+                <p>
+                    Manage your academic activities,
+                    track your progress and stay updated
+                    with campus information.
+                </p>
+            </div>
+            <div class="cards">
+
+
+                <div class="card">
+
+                    <h3>Attendance</h3>
+
+                    <h1>85%</h1>
+
+                    <p>Overall Attendance</p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>Assignments</h3>
+
+                    <h1>5</h1>
+
+                    <p>Pending Assignments</p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>Grades</h3>
+
+                    <h1>8.7</h1>
+
+                    <p>Current CGPA</p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <h3>Events</h3>
+
+                    <h1>3</h1>
+
+                    <p>Upcoming Events</p>
+
+                    
+
+                </div>
+
+
+            </div>
+
+            <div class="info-section">
+
+                <div class="box">
+
+                    <h2>Upcoming Events</h2>
+
+                    <ul>
+
+                        <li>Technical Workshop - 10 August</li>
+
+                        <li>Sports Day - 18 August</li>
+
+                        <li>Cultural Fest - 25 August</li>
+
+
+                    </ul>
+
+
+                </div>
+
+                <div class="box">
+
+
+                    <h2>Recent Notices</h2>
+
+
+                    <ul>
+
+                        <li>Mid Semester Exam Schedule Released</li>
+
+                        <li>New Study Material Uploaded</li>
+
+                        <li>Assignment Deadline Extended</li>
+
+
+                    </ul>
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+    <footer>
+
+
+        <h2>StudentHub</h2>
+
+
+        <p>
+            Your Smart Campus Companion
+        </p>
+
+
+        <p>
+            StudentHub helps students manage academic
+            resources, activities and campus updates easily.
+        </p>
+
+
+        <hr>
+
+
+        <p>
+            Email : support@studenthub.com
+        </p>
+
+
+        <p>
+            Phone : +91 98765 43210
+        </p>
+
+
+        <p>
+            © 2026 StudentHub Portal. All Rights Reserved.
+        </p>
+
+
+    </footer>
+
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+
+</html>

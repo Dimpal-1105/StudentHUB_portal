@@ -1,0 +1,208 @@
+/* =========================================================
+   COMMON CSS
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #CBDCEB;
+    color: #333333;
+}
+
+.container {
+    width: 95%;
+    margin: 15px auto;
+}
+
+
+/* =========================================================
+   COMMON HEADER
+   ========================================================= */
+
+#header {
+    background-color: #321E48;
+    color: white;
+    text-align: left;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+#header h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+#header p {
+    font-size: 15px;
+    color: #ddd;
+}
+
+
+/* =========================================================
+   COMMON NAVIGATION
+   ========================================================= */
+
+#nav {
+    margin-top: 15px;
+}
+
+#nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    gap: 25px;
+}
+
+#nav ul li a,
+#nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 7px 12px;
+    border-radius: 5px;
+}
+
+#nav ul li a:hover {
+    background-color: #5B3B7A;
+}
+
+
+/* =========================================================
+   COMMON PAGE TITLE
+   ========================================================= */
+
+.page-title {
+    background-color: #fcf4e2c8;
+    border-left: 6px solid #321E48;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.page-title h2 {
+    color: #321E48;
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.page-title p {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   COMMON FOOTER
+   ========================================================= */
+
+footer {
+    background-color: #321E48;
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+footer h2 {
+    margin-bottom: 7px;
+}
+
+footer p {
+    margin: 7px 0;
+    font-size: 14px;
+}
+
+footer hr {
+    width: 80%;
+    margin: 15px auto;
+    border: 1px solid #5B3B7A;
+}
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .mission-content {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .management-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-section,
+    .feedback-section {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-section {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-section {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        grid-row: auto;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .grade-row {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    #nav ul {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .information-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics {
+        grid-template-columns: 1fr;
+    }
+}
