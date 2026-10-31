@@ -3,7 +3,7 @@
 
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <style>
     #login-header
@@ -15,8 +15,8 @@
 }
 
 .auth-box {
-    width: 200px;
-    height: 300px;
+    width: 500px;
+    height: 360px;
     margin: 50px auto;
     border: 2px solid #5B3B7A;
     background-color: #fcf4e2c8;
@@ -34,7 +34,7 @@ body{background-color:#CBDCEB;}
 
     <fieldset class="auth-box">
 
-        <form action="Dashboard.html" method="post" autocomplete="on">
+       <form action="backend/process_login.php" method="POST" autocomplete="on">
 
             <br><br>
 
@@ -46,7 +46,13 @@ body{background-color:#CBDCEB;}
                     </td>
                     <td>:</td>
                     <td>
-                        <input type="text" placeholder="25CE001">
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter enrollment number or email"
+                            autocomplete="username"
+                            required>
                     </td>
                 </tr>
 
@@ -58,10 +64,12 @@ body{background-color:#CBDCEB;}
                     <td>
                         <input
                             type="password"
+                            id="password"
                             name="password"
                             minlength="8"
-                            maxlength="20"
+                            maxlength="255"
                             placeholder="Enter password"
+                            autocomplete="current-password"
                             required>
                     </td>
                 </tr>
@@ -73,13 +81,13 @@ body{background-color:#CBDCEB;}
                     <td>
                         <button
                             type="submit"
-                            style="background-color:#321E48; color:azure;">
+                            style="background-color:#321E48; color:azure; margin: 5px; padding: 5px 10px; border-radius: 5px;">
                             <b>Submit</b>
                         </button>
 
                         <button
                             type="reset"
-                            style="background-color:#321E48; color:azure;">
+                            style="background-color:#321E48; color:azure; margin: 5px; padding: 5px 10px; border-radius: 5px;">
                             <b>Clear</b>
                         </button>
                     </td>
@@ -90,16 +98,57 @@ body{background-color:#CBDCEB;}
         </form>
 
         <p>
-            Click here to go to the Home page.
-            <a href="home.html">Home</a>
+            <font size="+1" style="color: #321E48">Click here to go to the Home page</font>
+            <a href="home.html"><b>Home</b></a>
         </p>
 
         <p>
             Don't have an account?
-            <a href="register.html">Register</a>
+            <a href="Register.html"><b>Register</b></a>
         </p>
 
     </fieldset>
+    <footer>
+
+    <h2>StudentHub</h2>
+
+    <p>
+        Your Smart Campus Companion
+    </p>
+
+    <p>
+        StudentHub is a centralized portal that helps students
+        access academic resources, stay updated with campus
+        activities, and manage their academic journey efficiently.
+    </p>
+
+    <hr>
+
+    <h3>Contact Us</h3>
+
+    <p>Email : support@studenthub.com</p>
+
+    <p>Phone : +91 98765 43210</p>
+
+    <p>Address : CHARUSAT University, Changa, Anand, Gujarat</p>
+
+    <hr>
+
+    <h3>Follow Us</h3>
+
+    <p>
+        <a href="#">Instagram</a> |
+        <a href="#">Facebook</a> |
+        <a href="#">LinkedIn</a>
+    </p>
+
+    <hr>
+
+    <p align="center">
+        © 2026 StudentHub Portal. All Rights Reserved.
+    </p>
+
+</footer>
 <script src="script.js"></script>
 </body>
 

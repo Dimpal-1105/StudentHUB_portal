@@ -9,7 +9,7 @@
 
     <title>StudentHub | Contact</title>
 
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="Style.css">
    <style>
     .contact-section {
     display: grid;
@@ -170,9 +170,9 @@
 
                 <li><a href="home.html">Home</a></li>
 
-                <li><a href="about.html">About</a></li>
+                <li><a href="About.html">About</a></li>
 
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="Dashboard.php">Dashboard</a></li>
 
             </ul>
 
@@ -250,24 +250,24 @@
 
             <h2>Send Us a Message</h2>
 
-            <form>
+            <form action="backend/process_contact.php" method="POST">
 
                 <label for="name">Full Name</label>
 
                 <input type="text" id="name" name="name"
-                       placeholder="Enter your name">
+                       placeholder="Enter your name" required>
 
 
                 <label for="email">Email</label>
 
                 <input type="email" id="email" name="email"
-                       placeholder="Enter your email">
+                       placeholder="Enter your email" required>
 
 
                 <label for="subject">Subject</label>
 
                 <input type="text" id="subject" name="subject"
-                       placeholder="Enter subject">
+                       placeholder="Enter subject" required>
 
 
                 <label for="message">Message</label>

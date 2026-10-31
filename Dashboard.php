@@ -1,11 +1,59 @@
+<?php
+
+session_start();
+
+// Require an authenticated student account.
+if (!isset($_SESSION['student_id'])) {
+    header('Location: Login.html');
+    exit;
+}
+
+// Expire inactive sessions after 30 minutes.
+$timeout = 1800;
+
+if (
+    isset($_SESSION['last_activity']) &&
+    time() - $_SESSION['last_activity'] > $timeout
+) {
+    $_SESSION = [];
+
+    if (ini_get('session.use_cookies')) {
+        $params = session_get_cookie_params();
+
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000,
+            $params['path'],
+            $params['domain'],
+            $params['secure'],
+            $params['httponly']
+        );
+    }
+
+    session_destroy();
+
+    header('Location: Login.html?timeout=1');
+    exit;
+}
+
+$_SESSION['last_activity'] = time();
+$studentName = htmlspecialchars(
+    $_SESSION['student_name'] ?? 'Student',
+    ENT_QUOTES,
+    'UTF-8'
+);
+
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Student Dashboard</title>
-
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <style>
     .dashboard {
@@ -149,7 +197,7 @@
 .box {
     border: 2px solid #5B3B7A;
     background-color: #fcf4e2c8;
-    padding: 20px;
+    padding: 35px;
     width: 100%;
     border-radius: 10px;
 }
@@ -178,26 +226,6 @@
 
 .menu-button:hover {
     background-color: #321E48;
-}
-/* =========================
-   THEME SWITCHER
-   ========================= */
-
-.theme-button {
-    background-color: #5B3B7A;
-    color: white;
-
-    border: none;
-    border-radius: 5px;
-
-    padding: 8px 12px;
-
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.theme-button:hover {
-    background-color: #926eb6;
 }
 /* =========================
    NOTIFICATION BANNER
@@ -242,84 +270,44 @@
     color: #5B3B7A;
 }
 /* =========================
-   DARK THEME
+   RESPONSIVE HAMBURGER MENU
    ========================= */
 
-body.dark-theme {
-    background-color: #1e1e1e;
-    color: #eeeeee;
+.menu-button {
+    display: none;
 }
-
-/* Dashboard header */
-
-body.dark-theme #header {
-    background-color: #321E48;
-}
-
-/* Dashboard content */
-
-body.dark-theme .welcome,
-body.dark-theme .box {
-    background-color: #2b2b2b;
-    color: #eeeeee;
-}
-
-body.dark-theme .card {
-    background-color: #2b2b2b;
-    color: #eeeeee;
-}
-
-body.dark-theme .welcome h2,
-body.dark-theme .box h2,
-body.dark-theme .card h3,
-body.dark-theme .card h1 {
-    color: #d8c5e8;
-}
-
-body.dark-theme .notification {
-    background-color: #2b2b2b;
-    color: #eeeeee;
-
-    border-left-color: #b198cb;
-}
-
-body.dark-theme .notification strong,
-body.dark-theme .notification button {
-    color: #d8c5e8;
-}
-
-body.dark-theme footer {
-    background-color: #171717;
-    color: #eeeeee;
-}
-/* =========================
-   RESPONSIVE HAMBURGER
-   ========================= */
 
 @media (max-width: 768px) {
-
     .dashboard {
         position: relative;
     }
 
     .menu-button {
-        display: block;
+        display: inline-block;
     }
 
     .sidebar {
         display: none;
         position: absolute;
-
         top: 0;
         left: 0;
-
         width: 250px;
-
+        max-width: 85vw;
+        box-sizing: border-box;
+        min-height: 100%;
         z-index: 1000;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.25);
+        border-radius: 8px;
     }
 
     .sidebar.active {
         display: block;
+    }
+}
+
+    .dashboard-content {
+        min-width: 0;
+        width: 100%;
     }
 
     .top-menu {
@@ -334,10 +322,13 @@ body.dark-theme footer {
 
     .search input {
         width: 100%;
+        box-sizing: border-box;
     }
 
     .account-menu {
         margin-left: auto;
+        flex-wrap: wrap;
+        gap: 8px;
     }
 }
 </style>
@@ -356,21 +347,21 @@ body.dark-theme footer {
 
     <div class="dashboard">
 
-        <div class="sidebar">
+        <div class="sidebar" id="student-sidebar">
 
 
             <h2>StudentHub</h2>
 
 
             <ul>
-                <li><a href="dashboard.html"><button>Dashboard</button></a></li>
+                <li><a href="Dashboard.php"><button>Dashboard</button></a></li>
 
 
                 <h3>Academic</h3>
 
                 <li><a href="attendance.html"><button>Attendance</button></a></li>
 
-                <li><a href="assignments.html"><button>Assignments</button></a></li>
+                <li><a href="assigments.html"><button>Assignments</button></a></li>
 
                 <li><a href="materials.html"><button>Study Materials</button></a></li>
 
@@ -381,7 +372,7 @@ body.dark-theme footer {
 
                 <h3>Campus</h3>
 
-                <li><a href="events.html"><button>Events</button></a></li>
+                <li><a href="events.php"><button>Events</button></a></li>
 
                 <li><a href="notices.html"><button>Notices</button></a></li>
 
@@ -392,9 +383,14 @@ body.dark-theme footer {
             <div class="top-menu">
 
     <!-- Hamburger Menu -->
-    <button id="menuButton" class="menu-button">
-        ☰
-    </button>
+   <button
+    id="menuButton"
+    class="menu-button"
+    aria-label="Toggle sidebar"
+    aria-controls="student-sidebar"
+    aria-expanded="false">
+    ☰
+</button>
     <div id="notification" class="notification">
 
     <div>
@@ -413,22 +409,17 @@ body.dark-theme footer {
 
     <div class="account-menu">
 
-        <a href="profile.html">Profile</a>
+        <a href="profile.php">Profile</a>
 
         <a href="feedback.html">Feedback</a>
 
-        <a href="Login.html">Logout</a>
-
-        <!-- Theme Switcher -->
-        <button id="themeButton" class="theme-button">
-            🌙
-        </button>
+        <a href="backend/logout.php">Logout</a>
 
     </div>
 
 </div>
             <div class="welcome">
-                <h2>Welcome Back, Student!</h2>
+                <h2>Welcome, <?= $studentName ?>!</h2>
                 <p>
                     Manage your academic activities,
                     track your progress and stay updated

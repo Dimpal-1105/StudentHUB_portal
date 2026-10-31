@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['student_id'])) {
+    header('Location: Login.html');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +13,9 @@
 
     <title>StudentHub | Events</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .hero {
     margin-top: 20px;
@@ -126,64 +136,83 @@
 .featured-right button:hover {
     background: #321E48;
 }
-
-.events {
-    margin-top: 30px;
+.controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 25px auto;
+    max-width: 1000px;
 }
 
-.events h2 {
-    color: #321E48;
-    margin-bottom: 15px;
+.controls input,
+.controls select {
+    flex: 1;
+    min-width: 180px;
+    padding: 12px;
+    border: 1px solid #B9A8C9;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+#eventList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 .event-card {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    background: #fcf4e2c8;
+    background: #fcf4e2;
     border-left: 5px solid #5B3B7A;
+    padding: 18px;
     border-radius: 8px;
-    margin-bottom: 18px;
-    overflow: hidden;
+    box-shadow: 0 3px 8px #00000015;
 }
 
-.date-box {
-    min-width: 90px;
-    background: #5B3B7A;
-    color: white;
+.event-card h3 {
+    color: #321E48;
+    margin-top: 0;
+}
+
+.category {
+    display: inline-block;
+    background: #E4D9EF;
+    color: #321E48;
+    padding: 5px 9px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+#message {
+    text-align: center;
+    margin: 20px;
+}
+
+#pagination {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 15px;
+    margin: 25px;
 }
 
-.date-box h1 {
-    font-size: 32px;
+button {
+    background: #321E48;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 18px;
+    cursor: pointer;
 }
 
-.date-box p {
-    font-size: 15px;
+button:hover {
+    background: #5B3B7A;
 }
 
-.event-content {
-    padding: 18px;
-}
-
-.event-content h3 {
-    color: #321E48;
-    margin-bottom: 10px;
-}
-
-.event-content p {
-    line-height: 1.6;
-}
-
-.details {
-    margin-top: 12px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    align-items: center;
-    font-size: 15px;
+button:disabled {
+    background: #888;
+    cursor: not-allowed;
 }
 .modal {
     display: none;
@@ -195,7 +224,10 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
+/* Display the modal when JavaScript adds the show class */
+.modal.show {
+    display: block;
+}
 .modal-content {
     background-color: white;
     width: 50%;
@@ -212,6 +244,7 @@
     font-size: 28px;
     cursor: pointer;
 }
+
     </style>
 </head>
 <body>
@@ -226,7 +259,7 @@
 
                 <li><a href="home.html">Home</a></li>
 
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="Dashboard.php">Dashboard</a></li>
 
             </ul>
 
@@ -251,9 +284,9 @@
 
         <div class="hero-date">
 
-            <h3>August 2026</h3>
+            <h3>November 2026</h3>
 
-            <p>3 Upcoming Events</p>
+            <p>5 Upcoming Events</p>
 
         </div>
 
@@ -271,9 +304,9 @@
 
             <div class="featured-left">
 
-                <h1>10</h1>
+                <h1>05</h1>
 
-                <span>AUG</span>
+                <span>NEV</span>
 
             </div>
 
@@ -305,137 +338,59 @@
         </div>
 
     </section>
+<div class="controls">
+    <input type="text" id="searchInput"
+           placeholder="Search events...">
 
-    <section class="events">
+    <select id="categoryFilter">
+        <option value="All">All Categories</option>
+        <option value="Technical">Technical</option>
+        <option value="Sports">Sports</option>
+        <option value="Cultural">Cultural</option>
+    </select>
 
-        <h2>Upcoming Events</h2>
-
-        <div class="event-card">
-
-            <div class="date-box">
-
-                <h1>10</h1>
-
-                <p>AUG</p>
-
-            </div>
-
-            <div class="event-content">
-
-                <h3>Technical Workshop</h3>
-
-                <p>
-
-                    Learn Web Development, AI and GitHub through
-                    practical hands-on sessions conducted by
-                    industry experts.
-
-                </p>
-
-                <div class="details">
-
-                    <span> 10:00 AM</span>
-
-                    <span> Computer Lab</span>
-
-                    <span class="status">Upcoming</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="event-card">
-
-            <div class="date-box">
-
-                <h1>18</h1>
-
-                <p>AUG</p>
-
-            </div>
-
-            <div class="event-content">
-
-                <h3>Sports Day</h3>
-
-                <p>
-
-                    Participate in exciting indoor and outdoor
-                    competitions including cricket, football,
-                    volleyball, badminton and athletics while
-                    representing your department.
-
-                </p>
-
-                <div class="details">
-
-                    <span> 8:00 AM</span>
-
-                    <span> University Sports Ground</span>
-
-                    <span class="status">Upcoming</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- Event 3 -->
-
-        <div class="event-card">
-
-            <div class="date-box">
-
-                <h1>25</h1>
-
-                <p>AUG</p>
-
-            </div>
-
-            <div class="event-content">
-
-                <h3>Cultural Fest</h3>
-
-                <p>
-
-                    Celebrate creativity and talent through dance,
-                    music, drama, fashion shows, art exhibitions
-                    and cultural performances from students across
-                    all departments.
-
-                </p>
-
-                <div class="details">
-
-                    <span> 6:00 PM</span>
-
-                    <span> University Auditorium</span>
-
-                    <span class="status">Upcoming</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-<div id="eventModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-
-        <h2>Annual Tech Fest</h2>
-        <p>
-            Join us for the annual college technology event.
-            Explore technical competitions, workshops and activities.
-        </p>
-    </div>
+    <select id="sortOrder">
+        <option value="asc">Date: Oldest First</option>
+        <option value="desc">Date: Newest First</option>
+        <option value="title">Title: A to Z</option>
+    </select>
 </div>
 
+<div id="message">Loading events...</div>
+<div id="eventList"></div>
+
+<div id="pagination">
+    <button id="prevBtn">Previous</button>
+    <span id="pageInfo">Page 1</span>
+    <button id="nextBtn">Next</button>
+</div>
+<!-- Featured Event Details Modal -->
+<div id="eventModal" class="modal" role="dialog"
+     aria-modal="true" aria-labelledby="modalTitle">
+
+    <div class="modal-content">
+        <button type="button" class="close"
+                onclick="closeModal()" aria-label="Close modal">
+            &times;
+        </button>
+
+        <h2 id="modalTitle">Technical Workshop</h2>
+
+        <p>
+            Join our hands-on Technical Workshop to explore Web
+            Development, Artificial Intelligence, GitHub, and modern
+            development practices.
+        </p>
+
+        <p><strong>Date:</strong> 5 November 2026</p>
+        <p><strong>Time:</strong> 10:00 AM</p>
+        <p><strong>Location:</strong> Computer Lab</p>
+        <p><strong>Category:</strong> Technical</p>
+
+        <button type="button" onclick="closeModal()">Close</button>
+    </div>
+
+</div>
     <footer>
 
         <h2>StudentHub</h2>
@@ -454,6 +409,7 @@
 
 </div>
 <script src="script.js"></script>
+<script src="practical6.js"></script>
 </body>
 
 </html>

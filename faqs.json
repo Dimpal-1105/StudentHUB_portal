@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "How can I check my attendance?",
+    "answer": "Open the Student Dashboard and select Attendance to view your attendance information.",
+    "category": "Academic"
+  },
+  {
+    "id": 2,
+    "question": "Where can I find study materials?",
+    "answer": "Open the Study Materials section from your dashboard to access available learning resources.",
+    "category": "Academic"
+  },
+  {
+    "id": 3,
+    "question": "How do I check my grades?",
+    "answer": "Navigate to the Grades section in your Student Dashboard to view your academic results.",
+    "category": "Academic"
+  },
+  {
+    "id": 4,
+    "question": "How can I update my profile?",
+    "answer": "Open your Profile page to review your personal information and available profile options.",
+    "category": "Account"
+  },
+  {
+    "id": 5,
+    "question": "Where can I find campus events?",
+    "answer": "Visit the Events page to explore campus activities, workshops, sports events, and cultural programs.",
+    "category": "Campus"
+  },
+  {
+    "id": 6,
+    "question": "How do I contact the college?",
+    "answer": "Visit the Contact page to find the contact information provided by the portal.",
+    "category": "General"
+  },
+  {
+    "id": 7,
+    "question": "How can I find important announcements?",
+    "answer": "Open the Notices page to browse campus announcements and academic updates.",
+    "category": "Campus"
+  }
+]

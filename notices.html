@@ -9,62 +9,195 @@
 
     <title>StudentHub | Notices</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 
 </head>
 <style>
-    .notices {
-    margin-top: 25px;
+.notices-section {
+    margin: 25px auto;
 }
 
-.notice-card {
-    background-color: white;
-    padding: 22px;
-    margin-bottom: 15px;
-    border-left: 5px solid #5B3B7A;
-    border-radius: 8px;
+.notices-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 22px;
 }
 
-.notice-card h2 {
+.notices-heading h2 {
     color: #321E48;
-    margin: 10px 0 5px;
-    font-size: 20px;
+    margin-bottom: 6px;
 }
 
-.notice-card p {
+.notices-heading p {
+    color: #555;
     line-height: 1.6;
 }
 
-.date {
-    color: #5B3B7A;
-    font-size: 13px;
+.notices-badge {
+    background: #411b64;
+    color: #fff;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-size: 15px;
     font-weight: bold;
-    margin-bottom: 10px;
+    align-items:center;
 }
 
-.new,
-.important,
-.event {
+.notice-controls {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    background: #F0F0F0;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+}
+
+.notice-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+.notice-control label {
+    color: #321E48;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.notice-control input,
+.notice-control select {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 11px;
+    border: 1px solid #B9A8C9;
+    border-radius: 7px;
+    background: #FFFFFF;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.notice-control input:focus,
+.notice-control select:focus {
+    outline: 2px solid #5B3B7A;
+    outline-offset: 2px;
+}
+
+.notice-message {
+    color: #321E48;
+    margin: 18px 0;
+    font-size: 14px;
+}
+
+.notice-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.notice-card {
+    background: #FFFFFF;
+    border: 1px solid #E0D5E9;
+    border-left: 5px solid #5B3B7A;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(50, 30, 72, 0.08);
+    overflow-wrap: anywhere;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.notice-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(50, 30, 72, 0.13);
+}
+
+.notice-card h3 {
+    color: #321E48;
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 13px 0;
+}
+
+.notice-category {
     display: inline-block;
+    background: #E9DDF4;
+    color: #321E48;
     padding: 5px 10px;
-    border-radius: 4px;
+    border-radius: 15px;
     font-size: 12px;
     font-weight: bold;
 }
 
-.new {
-    background-color: #b198cb;
-    color: #321E48;
+.notice-date {
+    color: #5B3B7A;
+    font-size: 13px;
+    font-weight: bold;
 }
 
-.important {
-    background-color: #f9a5a5;
-    color: #191a32;
+.notice-description {
+    color: #444444;
+    font-size: 14px;
+    line-height: 1.7;
 }
 
-.event {
-    background-color: #CBDCEB;
+.notice-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.notice-pagination button {
+    background: #321E48;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.notice-pagination button:hover:not(:disabled) {
+    background: #5B3B7A;
+}
+
+.notice-pagination button:disabled {
+    background: #A9A0B1;
+    cursor: not-allowed;
+}
+
+#noticePageInfo {
     color: #321E48;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .notice-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .notice-controls {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .notice-list,
+    .notice-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .notices-heading {
+        align-items: flex-start;
+    }
 }
 </style>
 <body>
@@ -84,9 +217,9 @@
 
                 <li><a href="home.html">Home</a></li>
 
-                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="Dashboard.php">Dashboard</a></li>
 
-                <li><a href="profile.html">Profile</a></li>
+                <li><a href="profile.php">Profile</a></li>
 
             </ul>
 
@@ -104,96 +237,72 @@
         </p>
 
     </section>
+<!-- Dynamic Notices Section -->
+<section class="notices-section">
 
+    <div class="notices-heading">
+        <span class="notices-badge">StudentHUB Updates</span>
+    </div>
 
-    <section class="notices">
+    <!-- Search, Filter and Sort -->
+    <div class="notice-controls">
 
-
-        <div class="notice-card">
-
-            <span class="new">NEW</span>
-
-            <h2>Mid Semester Exam Schedule Released</h2>
-
-            <p class="date">8 August 2026</p>
-
-            <p>
-                The Mid Semester Examination schedule has been
-                released. Students are requested to check the
-                examination timetable and prepare accordingly.
-            </p>
-
+        <div class="notice-control">
+            <label for="noticeSearch">Search Notices</label>
+            <input
+                type="search"
+                id="noticeSearch"
+                placeholder="Search by title or description..."
+                autocomplete="off"
+            >
         </div>
 
-
-        <div class="notice-card">
-
-            <span class="new">NEW</span>
-
-            <h2>New Study Material Uploaded</h2>
-
-            <p class="date">7 August 2026</p>
-
-            <p>
-                Faculty members have uploaded new study materials
-                for Data Structures and Web Development.
-                Students can access them from the Study Materials section.
-            </p>
-
+        <div class="notice-control">
+            <label for="noticeCategory">Category</label>
+            <select id="noticeCategory">
+                <option value="All">All Categories</option>
+                <option value="Academic">Academic</option>
+                <option value="Events">Events</option>
+                <option value="Sports">Sports</option>
+                <option value="General">General</option>
+            </select>
         </div>
 
-
-        <div class="notice-card">
-
-            <span class="important">IMPORTANT</span>
-
-            <h2>Assignment Deadline Extended</h2>
-
-            <p class="date">5 August 2026</p>
-
-            <p>
-                The submission deadline for the Web Development
-                assignment has been extended to 14 August 2026.
-            </p>
-
+        <div class="notice-control">
+            <label for="noticeSort">Sort By</label>
+            <select id="noticeSort">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="title">Title: A–Z</option>
+            </select>
         </div>
 
+    </div>
 
-        <div class="notice-card">
+    <!-- Loading and result messages -->
+    <p id="noticeMessage" class="notice-message" role="status" aria-live="polite">
+        Loading notices...
+    </p>
 
-            <span class="event">EVENT</span>
+    <!-- Notices loaded from notices.json -->
+    <div id="noticeList" class="notice-list"></div>
 
-            <h2>Annual Sports Day</h2>
+    <!-- Pagination -->
+    <div class="notice-pagination">
 
-            <p class="date">3 August 2026</p>
+        <button type="button" id="noticePrev" disabled>
+            &larr; Previous
+        </button>
 
-            <p>
-                Students are invited to participate in the Annual
-                Sports Day scheduled for 18 August 2026.
-            </p>
+        <span id="noticePageInfo" aria-live="polite">Page 1 of 1</span>
 
-        </div>
+        <button type="button" id="noticeNext" disabled>
+            Next &rarr;
+        </button>
 
+    </div>
 
-        <div class="notice-card">
-
-            <span class="event">EVENT</span>
-
-            <h2>Cultural Fest Announcement</h2>
-
-            <p class="date">1 August 2026</p>
-
-            <p>
-                The Annual Cultural Fest will be held on
-                25 August 2026 at the University Auditorium.
-            </p>
-
-        </div>
-
-
-    </section>
-
-
+</section>
     <footer>
 
         <h2>StudentHub</h2>
@@ -213,6 +322,7 @@
 
 </div>
 <script src="script.js"></script>
+<script src="notices.js"></script>
 </body>
 
 </html>

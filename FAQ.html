@@ -9,49 +9,205 @@
 
     <title>StudentHub | FAQ</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <style>
-    .faq-section {
-    margin-top: 25px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+/* DYNAMIC FAQ SECTION */
+
+.dynamic-faq-section {
+    width: 95%;
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 28px;
+    box-sizing: border-box;
+    background: #F0F0F0;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(50, 30, 72, 0.12);
 }
 
-.faq-item {
-    background-color: white;
-    border-left: 5px solid #5B3B7A;
-    border-radius: 8px;
-    padding: 20px;
+.faq-heading {
+    margin-bottom: 25px;
 }
 
-.question {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.question span {
-    color: #5B3B7A;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.question h3 {
+.faq-heading h1 {
+    margin: 12px 0 8px;
     color: #321E48;
-    font-size: 17px;
 }
 
-.faq-item p {
-    font-size: 14px;
+.faq-heading p {
+    color: #555;
     line-height: 1.6;
-    color: #444;
 }
-.answer {
+
+.faq-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #e7dcef;
+    color: #321E48;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.faq-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.faq-controls input,
+.faq-controls select {
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #b9a8c9;
+    border-radius: 7px;
+    background: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.faq-controls input {
+    flex: 1;
+}
+
+.faq-controls select {
+    width: 200px;
+}
+
+#faqMessage {
+    color: #555;
+    margin: 15px 0;
+}
+
+.dynamic-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.dynamic-faq-item {
+    overflow: hidden;
+    border: 1px solid #ded4e7;
+    border-radius: 9px;
+    background: #fff;
+    transition: box-shadow 0.2s;
+}
+
+.dynamic-faq-item:hover {
+    box-shadow: 0 3px 10px rgba(50, 30, 72, 0.1);
+}
+
+.dynamic-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 17px 20px;
+    border: none;
+    background: #fff;
+    color: #321E48;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.dynamic-faq-question:hover,
+.dynamic-faq-question[aria-expanded="true"] {
+    background: #f3edf8;
+}
+
+.dynamic-faq-question:focus-visible {
+    outline: 2px solid #5B3B7A;
+    outline-offset: -3px;
+}
+
+.faq-toggle-icon {
+    flex-shrink: 0;
+    color: #5B3B7A;
+    font-size: 23px;
+}
+
+.dynamic-faq-answer {
+    padding: 0 20px 18px;
+    border-top: 1px solid #eee6f3;
+    line-height: 1.7;
+    color: #444;
+    overflow-wrap: anywhere;
+}
+
+.dynamic-faq-answer[hidden] {
     display: none;
-    padding: 10px 0;
+}
+
+.dynamic-faq-category {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: #e7dcef;
+    color: #321E48;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .dynamic-faq-section {
+        padding: 17px;
+    }
+
+    .faq-controls {
+        flex-direction: column;
+    }
+
+    .faq-controls select {
+        width: 100%;
+    }
+
+    .dynamic-faq-question {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .dynamic-faq-answer {
+        padding: 0 15px 15px;
+    }
+}
+.help {
+    background-color: #fcf4e2c8;
+    border: 2px solid #5B3B7A;
+    border-radius: 8px;
+    text-align: left;
+    padding: 20px;
+    margin-top: 25px;
+}
+
+.help h2 {
+    color: #321E48;
+    margin-bottom: 8px;
+}
+
+.help p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.help a {
+    display: inline-block;
+    background-color: #5B3B7A;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.help a:hover {
+    background-color: #321E48;
 }
 </style>
 <body>
@@ -68,7 +224,7 @@
 
                 <li><a href="home.html">Home</a></li>
 
-                <li><a href="about.html">About</a></li>
+                <li><a href="About.html">About</a></li>
 
                 <li><a href="Login.html">Login</a></li>
 
@@ -91,128 +247,34 @@
         </p>
 
     </section>
+<section class="dynamic-faq-section">
+    <div class="faq-heading">
+        <span class="faq-badge">STUDENT SUPPORT</span>
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about StudentHUB.</p>
+    </div>
 
+    <div class="faq-controls">
+        <input
+            type="text"
+            id="faqSearch"
+            placeholder="Search questions..."
+            aria-label="Search frequently asked questions"
+        >
 
-    <!-- FAQ -->
+        <select id="faqCategory" aria-label="Filter FAQs by category">
+            <option value="All">All Categories</option>
+            <option value="Academic">Academic</option>
+            <option value="Account">Account</option>
+            <option value="Campus">Campus</option>
+            <option value="General">General</option>
+        </select>
+    </div>
 
-    <section class="faq-section">
+    <p id="faqMessage" role="status">Loading FAQs...</p>
 
-
-        <div class="faq-item">
-
-            <div class="question">
-
-                <span>01</span>
-
-                <h3>What is StudentHub?</h3>
-
-            </div>
-
-            <p class="answer">
-                StudentHub is a centralized student portal that
-                provides access to academic information, events,
-                notices, profiles and student services.
-            </p>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="question">
-
-                <span>02</span>
-
-                <h3>How can I register on StudentHub?</h3>
-
-            </div>
-
-            <p class="answer">
-                Click on the Register option from the navigation
-                menu and enter the required student information
-                to create your account.
-            </p>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="question">
-
-                <span>03</span>
-
-                <h3>How can I access my dashboard?</h3>
-
-            </div>
-
-            <p class="answer">
-                Login to your StudentHub account using your
-                registered credentials. After successful login,
-                you will be directed to your student dashboard.
-            </p>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="question">
-
-                <span>04</span>
-
-                <h3>Where can I check my attendance?</h3>
-
-            </div>
-
-            <p class="answer">
-                Your attendance information is available under
-                the Attendance section of the student dashboard.
-            </p>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="question">
-
-                <span>05</span>
-
-                <h3>Where can I find study materials?</h3>
-
-            </div>
-
-            <p class="answer">
-                Study materials uploaded by faculty can be
-                accessed through the Study Materials section
-                of the dashboard.
-            </p>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <div class="question">
-
-                <span>06</span>
-
-                <h3>How can I contact StudentHub support?</h3>
-
-            </div>
-
-            <p class="answer">
-                You can contact the StudentHub support team through
-                the Contact Us page using the provided email,
-                phone number or contact form.
-            </p>
-
-        </div>
-
-
-    </section>
-
+    <div id="faqList" class="dynamic-faq-list"></div>
+</section>
 
     <!-- HELP -->
 
@@ -251,6 +313,7 @@
 
 </div>
 <script src="script.js"></script>
+<script src="faqs.js"></script>
 </body>
 
 </html>

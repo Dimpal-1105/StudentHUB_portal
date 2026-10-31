@@ -1,0 +1,59 @@
+
+[
+  {
+    "id": 1,
+    "title": "Technical Workshop",
+    "category": "Technical",
+    "date": "2026-11-05",
+    "location": "Computer Lab"
+  },
+  {
+    "id": 2,
+    "title": "Annual Sports Day",
+    "category": "Sports",
+    "date": "2026-11-10",
+    "location": "University Ground"
+  },
+  {
+    "id": 3,
+    "title": "Cultural Fest",
+    "category": "Cultural",
+    "date": "2026-11-15",
+    "location": "Main Auditorium"
+  },
+  {
+    "id": 4,
+    "title": "Coding Competition",
+    "category": "Technical",
+    "date": "2026-11-20",
+    "location": "IT Department"
+  },
+  {
+    "id": 5,
+    "title": "Cricket Tournament",
+    "category": "Sports",
+    "date": "2026-11-25",
+    "location": "University Ground"
+  },
+  {
+    "id": 6,
+    "title": "Music Night",
+    "category": "Cultural",
+    "date": "2026-12-01",
+    "location": "Main Auditorium"
+  },
+  {
+    "id": 7,
+    "title": "Web Development Seminar",
+    "category": "Technical",
+    "date": "2026-12-05",
+    "location": "Seminar Hall"
+  },
+  {
+    "id": 8,
+    "title": "Badminton Championship",
+    "category": "Sports",
+    "date": "2026-12-10",
+    "location": "Indoor Sports Complex"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "Mid-Semester Examination Notice",
+    "category": "Academic",
+    "date": "2026-11-02",
+    "description": "Students should check the examination timetable and prepare according to the announced schedule."
+  },
+  {
+    "id": 2,
+    "title": "Technical Workshop Registration",
+    "category": "Events",
+    "date": "2026-11-05",
+    "description": "Registration is open for the technical workshop covering Web Development and Artificial Intelligence."
+  },
+  {
+    "id": 3,
+    "title": "Library Timing Update",
+    "category": "General",
+    "date": "2026-11-08",
+    "description": "Students should check the updated library schedule before planning their study sessions."
+  },
+  {
+    "id": 4,
+    "title": "Annual Sports Day",
+    "category": "Sports",
+    "date": "2026-11-10",
+    "description": "Students interested in participating in Sports Day should check the event schedule and registration details."
+  },
+  {
+    "id": 5,
+    "title": "Assignment Submission Reminder",
+    "category": "Academic",
+    "date": "2026-11-12",
+    "description": "Students should review their assignment requirements and submit their work before the deadline announced by their faculty."
+  },
+  {
+    "id": 6,
+    "title": "Cultural Fest Announcement",
+    "category": "Events",
+    "date": "2026-11-15",
+    "description": "Students can look forward to cultural performances and campus activities during the upcoming Cultural Fest."
+  },
+  {
+    "id": 7,
+    "title": "Campus Cleanliness Drive",
+    "category": "General",
+    "date": "2026-11-18",
+    "description": "Students are encouraged to participate in activities that help maintain a clean and welcoming campus."
+  }
+]
